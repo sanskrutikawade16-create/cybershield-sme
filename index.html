@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CyberShield SME - Cybersecurity Risk Assessment Framework for Small Businesses">
+  <title>CyberShield SME | Risk Assessment Framework</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-mark">CS</span> CyberShield <span>SME</span></a>
+    <nav>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#assessment">Assessment</a>
+      <a href="#threats">Threats</a>
+      <a href="#mitigation">Mitigation</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#best-practices">Best Practices</a>
+    </nav>
+    <button class="menu" aria-label="Toggle navigation">☰</button>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">SME CYBERSECURITY • NIST-INSPIRED</p>
+        <h1>Know your risk.<br><span>Strengthen your business.</span></h1>
+        <p class="lead">A practical cybersecurity risk assessment prototype for small and medium enterprises. Identify threats, calculate risk, and choose focused controls.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#assessment">Start Assessment →</a>
+          <a class="btn ghost" href="#framework">Explore Framework</a>
+        </div>
+        <div class="author-card">
+          <div class="avatar">SK</div>
+          <div><small>Developed by</small><strong>Sanskruti Kawade</strong></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="shield">⌁</div>
+        <div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+        <div class="floating-card fc1">◉ <b>Risk Score</b><strong id="heroScore">--</strong></div>
+        <div class="floating-card fc2">✓ MFA <small>Recommended</small></div>
+        <div class="floating-card fc3">⚠ Phishing <small>High exposure</small></div>
+      </div>
+    </section>
+
+    <section id="dashboard" class="section dashboard">
+      <div class="section-head"><p class="eyebrow">LIVE OVERVIEW</p><h2>Security posture dashboard</h2><p>Use the assessment tool to turn business risks into an actionable priority list.</p></div>
+      <div class="stats">
+        <article><span class="stat-icon">⚠</span><small>Risk Level</small><strong id="riskLevel">Not assessed</strong><span id="riskBar" class="mini-bar"><i></i></span></article>
+        <article><span class="stat-icon">◈</span><small>Risk Score</small><strong id="scoreValue">0 / 100</strong><span class="muted">Likelihood × impact</span></article>
+        <article><span class="stat-icon">✓</span><small>Controls</small><strong id="controlCount">0</strong><span class="muted">Recommended actions</span></article>
+        <article><span class="stat-icon">◉</span><small>Framework</small><strong>NIST CSF</strong><span class="muted">Identify → Protect → Detect → Respond → Recover</span></article>
+      </div>
+    </section>
+
+    <section id="framework" class="section">
+      <div class="section-head"><p class="eyebrow">01 • FRAMEWORK</p><h2>NIST-inspired five-function model</h2><p>The prototype maps SME security activities to the five core NIST Cybersecurity Framework functions.</p></div>
+      <div class="framework-grid">
+        <article><b>01</b><h3>Identify</h3><p>Inventory assets, data, users, suppliers, and business-critical services.</p></article>
+        <article><b>02</b><h3>Protect</h3><p>Apply MFA, secure configuration, backups, access control, and training.</p></article>
+        <article><b>03</b><h3>Detect</h3><p>Monitor suspicious activity, endpoint alerts, logs, and account anomalies.</p></article>
+        <article><b>04</b><h3>Respond</h3><p>Contain incidents, communicate responsibilities, and preserve evidence.</p></article>
+        <article><b>05</b><h3>Recover</h3><p>Restore trusted systems, test backups, and improve the response plan.</p></article>
+      </div>
+    </section>
+
+    <section id="assessment" class="section assessment">
+      <div class="section-head"><p class="eyebrow">02 • RISK ENGINE</p><h2>Assess your SME</h2><p>Rate each factor from 1 (low) to 5 (very high). The model calculates a normalized score and prioritizes controls.</p></div>
+      <div class="assessment-layout">
+        <div class="risk-form">
+          <div class="input-row">
+            <label>Business type<select id="businessType">
+              <option value="retail">Retail / E-commerce</option>
+              <option value="professional">Professional Services</option>
+              <option value="manufacturing">Manufacturing</option>
+              <option value="healthcare">Healthcare / Clinic</option>
+              <option value="education">Education / Training</option>
+            </select></label>
+            <label>Employees<input id="employees" type="number" min="1" max="9999" value="25"></label>
+          </div>
+          <div id="riskInputs"></div>
+          <button class="btn primary full" id="calculate">Calculate Risk Score</button>
+          <button class="btn ghost full" id="reset">Reset</button>
+        </div>
+        <div class="result-panel">
+          <div class="score-ring" id="scoreRing"><span id="resultScore">0</span><small>/100</small></div>
+          <p class="eyebrow">CURRENT RISK</p><h3 id="resultLevel">Not assessed</h3>
+          <p id="resultText">Complete the factors to generate a prioritized security assessment.</p>
+          <div id="recommendations" class="recommendations"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="threats" class="section">
+      <div class="section-head"><p class="eyebrow">03 • THREAT LIBRARY</p><h2>Common SME cyber risks</h2><p>These threat categories are included in the prototype's evaluation model.</p></div>
+      <div class="threat-grid" id="threatGrid"></div>
+    </section>
+
+    <section id="mitigation" class="section dark-section">
+      <div class="section-head"><p class="eyebrow">04 • MITIGATION</p><h2>Turn risk into action</h2><p>Controls are grouped by practical effort so SMEs can build security progressively.</p></div>
+      <div class="mitigation-grid" id="mitigationGrid"></div>
+    </section>
+
+    <section id="cases" class="section">
+      <div class="section-head"><p class="eyebrow">05 • VALIDATION</p><h2>SME case studies</h2><p>Illustrative scenarios demonstrate how the model changes priorities across different business types.</p></div>
+      <div class="case-grid" id="caseGrid"></div>
+    </section>
+
+    <section id="best-practices" class="section">
+      <div class="section-head"><p class="eyebrow">06 • BEST PRACTICES</p><h2>Security baseline for small businesses</h2></div>
+      <div class="checklist">
+        <label><input type="checkbox"> Enable multi-factor authentication for email, admin, and cloud accounts.</label>
+        <label><input type="checkbox"> Maintain tested offline or immutable backups for critical data.</label>
+        <label><input type="checkbox"> Keep operating systems, browsers, applications, and firmware patched.</label>
+        <label><input type="checkbox"> Train employees to identify phishing, social engineering, and unsafe links.</label>
+        <label><input type="checkbox"> Use least privilege and remove unused accounts promptly.</label>
+        <label><input type="checkbox"> Protect endpoints with reputable security software and centralized updates.</label>
+        <label><input type="checkbox"> Create an incident response contact list and recovery procedure.</label>
+        <label><input type="checkbox"> Review vendors and third-party access before granting permissions.</label>
+      </div>
+      <div class="progress-wrap"><span id="checkProgress">0 / 8 completed</span><div class="progress"><i id="progressBar"></i></div></div>
+    </section>
+
+    <section class="section report-section">
+      <div><p class="eyebrow">PROJECT OUTPUT</p><h2>Prototype methodology</h2>
+      <div class="method-grid">
+        <div><b>1</b><h3>Research</h3><p>Identify common SME threats and map them to security functions.</p></div>
+        <div><b>2</b><h3>Score</h3><p>Combine likelihood and impact into a 0–100 normalized risk score.</p></div>
+        <div><b>3</b><h3>Prioritize</h3><p>Translate high-risk areas into focused mitigation actions.</p></div>
+        <div><b>4</b><h3>Validate</h3><p>Compare illustrative business cases and document findings.</p></div>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>CyberShield SME</strong><span>Cybersecurity Risk Assessment Framework for Small Businesses</span></div>
+    <div>Developed by <strong>Sanskruti Kawade</strong> • Academic Prototype</div>
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
